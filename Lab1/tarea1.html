@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <title> Calculadora LAB1</title>
+    </head>
+    <body>
+        <input name="X" type="text" id="X"><br>
+    
+        <select name="op" type="select" id="op">
+            <option value="+">+</option> 
+            <option value="-">-</option> 
+            <option value="*">*</option> 
+            <option value="/">/</option> 
+        </select>
+        <br>
+        
+        <input name="Y" type="text" id="Y"><br>
+        
+        <input name="introducido" type="text" id="introducido"><br>
+        
+        <input type="button" onclick="return Calcular()" name="calcular" value="Calcular">
+        
+        <script>
+            function Calcular(){
+            
+            var x = document.getElementById('X').value;
+            var o = document.getElementById('op').value;
+            var y = document.getElementById('Y').value;
+            var intro = document.getElementById('introducido').value;
+            var resultado;
+            
+            if(x.length==0){
+                alert("Introduce al menos un numero a la izquierda.");
+                return false;
+            }
+            if(y.length==0){
+                alert("Introduce al menos un numero a la derecha.");
+                return false;
+            }
+            
+            if(o=="+"){
+                resultado=x+y;
+            }
+            if(o=="-"){
+                resultado=x-y;
+            }
+            if(o=="*"){
+                resultado=x*y;
+            }
+            if(o=="/"){
+                resultado=x/y;
+            }
+            
+            if(resultado==intro){
+                alert("El valor introducido es correcto, enhorabuena");
+                return true;
+            }
+            else{
+                alert("El valor introducido no es correcto, lo siento");
+                return false;
+            }
+            }
+        </script>
+        
+    </body>
+    
+    
+    
+                    
+</html>

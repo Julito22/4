@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Calculadora LAB1</title>
+    </head>
+    <body>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background: rgb(176,224,230)
+            }
+        
+        </style> 
+        <form id="Calculadora">
+            <input name="X" type="text" id="X" class="Espacios1"><br>
+        
+            <select name="op" type="select" id="op">
+                <option value="+">+</option> 
+                <option value="-">-</option> 
+                <option value="*">*</option> 
+                <option value="/">/</option> 
+            </select>
+            <br>
+            
+            <input name="Y" type="text" id="Y"><br>
+            
+            <input name="introducido" type="text" id="introducido"><br>
+            
+            <button type="submit" id="limpiar">Limpiar</button>
+            
+            <input type="button" id="calcular" value="Calcular">
+            
+           
+        </form>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js">
+        </script>
+        <script>
+        
+            $(".espacios").css("colr", "green");
+            
+            var calcular = function(){
+                
+                var $x = $("#X");
+                var x = $x.val();
+                var $op = $("#op");
+                var o = $op.val();
+                var $y = $("#Y");
+                var y = $y.val();
+                var $intro = $("#introducido");
+                var intro = $intro.val();
+                var resultado;
+                
+                if(x.length==0){
+                    alert("Introduce al menos un numero a la izquierda.");
+                    return false;
+                }
+                if(y.length==0){
+                    alert("Introduce al menos un numero a la derecha.");
+                    return false;
+                }
+                
+                if(o=="+"){
+                    resultado=x + y;
+                }
+                if(o=="-"){
+                    resultado=x-y;
+                }
+                if(o=="*"){
+                    resultado=x*y;
+                }
+                if(o=="/"){
+                    resultado=x/y;
+                }
+                
+               
+                
+                if(resultado==intro){
+                    alert("El valor introducido es correcto, enhorabuena");
+                    $("<img>")
+                    .attr("src", "https://1.bp.blogspot.com/-A3PPXqx-EeY/V2wqur-s19I/AAAAAAAAD5Y/UXTbDhrJdewsvUgBSRuIf_zPdmIsUEw2gCLcB/s1600/homer-enhorabuena.png")
+                    .attr("width", 250)
+                    .attr("alt", "width")
+                    .appendTo("body");
+                    return true;
+                }
+                else{
+                    alert("El valor introducido no es correcto, lo siento");
+                    return false;
+                }
+            }
+        
+        var limpiar= function(){
+            $("#X").value=null;
+            $("#Y").value=null;
+        }
+                    
+        
+        $("#introducido").on("keyup", function(){
+            calcular();
+        });
+        $("#limpiar").on("click", function(){
+            limpiar();
+        });
+        
+        $("#calcular").on("click", function() {
+            calcular();
+        });
+            
+        </script>
+        
+    </body>
+</html>

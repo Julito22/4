@@ -14,7 +14,7 @@
 		    href='estilos/smartphone.css' />
     </head>
     <body>
-        <form id="pregunta" action="PHP/insertarPreguntas.php" method="POST">
+        <form id="Calculadora" action="../prueba.php">
             <center>
                 <br><br><br><br>
                 <label>Introduce tu direccion de correo electronico: <input name="Correo" type="text" id="correo"></label><br>
@@ -35,11 +35,11 @@
                 
                 <label>Tema de la pregunta: <input name="tema" type="text" id="tema"></label><br>
                 
-                <label>Imagen(opcional): <input name = "imagen" type="file" id="imagen"></label><br>
+                <label>Imagen(opcional): <input type="file" id="imagen"></label><br>
                 
                 <span><a href='layout.html'>Volver a la pagina principal</a></span>
                 
-                <input type="submit" id="enviar" value="enviar">
+                <input type="button" id="enviar" value="enviar">
                 
                 
             </center>
@@ -50,6 +50,7 @@
         <script>
         
             var comprobarMail = function(email){
+                var m = "@ikasle.ehu.eus"
                 var caract = new RegExp(/^([a-zA-Z0-9_.+-])+[0-9][0-9][0-9]+[\@ikasle\.ehu\.eus]+$/);
            
                 if (caract.test(email) == false){
@@ -76,18 +77,15 @@
                 }
                 if(comprobarMail(correo)==false){
                     alert("Correo mal introducido!!, recuerda que debes escribirlo de la siguiente forma: (caracteres)+3 digitos+'@ikasle.ehu.eus'")
-					return false;
                 }
                 if(enunciado.length<10){
                     alert("La pregunta debe tener al menos 10 caracateres.")
                     return false;
                 }
-				
-				return true;
             }
         
-        $("#pregunta").submit(function(){
-            return comprobar();
+        $("#enviar").on("click", function(){
+            comprobar();
         });
         </script>
     </body>
